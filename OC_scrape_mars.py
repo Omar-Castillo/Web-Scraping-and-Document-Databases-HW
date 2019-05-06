@@ -34,7 +34,6 @@ def scrape():
     html = browser.html
     soup = bs(html, 'html.parser')
 
-    # In[5]:
 
     #tested html
     #html
@@ -44,13 +43,9 @@ def scrape():
     news_p = soup.find('div', class_="article_teaser_body").text
 
 
-    # In[7]:
-
     #upload our news_title and news_p variables to mars_data dict
     mars_data["news_title"] = news_title
     mars_data["news_p"] = news_p
-
-    # In[9]:
 
 
     # recent_news = []
@@ -60,15 +55,10 @@ def scrape():
     # recent_news
 
 
-    # In[10]:
-
 
     #Time to scrape the featured Mars image page 
     url2 = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
     browser.visit(url2)
-
-
-    # In[11]:
 
 
     #bring in html for Nasa Mars image page
@@ -76,34 +66,20 @@ def scrape():
     soup2 = bs(html2, 'html.parser')
 
 
-    # In[12]:
-
-
     #find the featured image on web page
     featured_image_button = soup2.find('a', class_="button fancybox")
 
 
-    # In[13]:
-
-
+    # test featured_image
     featured_image_button
-
-
-    # In[14]:
 
 
     #pull the full size image url
     image_url = featured_image_button['data-fancybox-href']
 
 
-    # In[15]:
-
-
+    # test image_url
     image_url
-
-
-    # In[16]:
-
 
     #combine the home path url to the image url that was scraped
     full_image_url = f'https://www.jpl.nasa.gov{image_url}'
@@ -156,7 +132,7 @@ def scrape():
     # mars_data.append(mars_table)
 
     #send our table to html format
-    mars_table_html = mars_final.to_html('mars_table.html')
+    mars_table_html = mars_final.to_html()
     mars_data["mars_table_html"] = mars_table_html
 
 
@@ -170,23 +146,13 @@ def scrape():
     soup5 = bs(html5, 'html.parser')
 
 
-    # In[32]:
-
-
     #We need to first identify the container with the link new page, with enhanced image download
     # define the 'home url' that will be added to all links later on
     astro_home_url = "https://astrogeology.usgs.gov"
     link_container = soup5.find_all('div', class_='description')
 
 
-    # In[33]:
-
-
     link_container
-
-
-    # In[34]:
-
 
     #create an empty list for the 'enhanced image' urls and run a loop on the link container to pull the links
     enhanced_url_list = []
@@ -218,15 +184,11 @@ def scrape():
         soup = bs(response.text, 'lxml')
         title = soup.find('h2', class_='title').text.strip('Enhanced')
         download_container = soup.find('div', class_='downloads')
-        full_image = download_container.find('a', string='Original')['href']
+        full_image = download_container.find('a', string='Sample')['href']
         
         images_dict = {"title": title,
                     "image_url": full_image}
         hemisphere_images_url.append(images_dict)
-
-
-    # # In[52]:
-
 
     # #our final list of dictionary to add to mars_data dic
     mars_data["hemisphere_images_url"] = hemisphere_images_url

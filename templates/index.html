@@ -40,7 +40,8 @@
           </div>
           <br>
           <h2><strong>Mars Facts</strong></h2>
-          <table>{{mars_info.mars_data_html}}</table>
+          <a href="{{mars_info.mars_table_html}}"></a>
+          <p>{{mars_info.mars_table_html | safe}}</p>
         </div> 
       </div>    
     </div>
@@ -55,30 +56,30 @@
                     <!--Row Valles Marineris Hemisphere and Cereberus Hemisphere-->
                     <div class="row">
                         <div class = 'col-lg-6 col-md-6'>
-                            <h4 class="Image-Title"><strong>Valles Marineris Hemisphere Enhanced</strong></h4>
-                            <a href={{mars_info.hemisphere_images_url}}
-                            ><img src={{mars_info.hemisphere_images_url}} class="panel" alt="Valles Marineris Hemisphere Enhanced"></img>
+                            <h4 class="Image-Title"><strong>{{mars_info.hemisphere_images_url[0].title}}</strong></h4>
+                            <a href={{mars_info.hemisphere_images_url[0].image_url}}>
+                              <img src={{mars_info.hemisphere_images_url[0].image_url}} class="panel" style="width:100%" alt={{mars_info.hemisphere_images_url[0].title}}></img>
                             </a>
                         </div>
                         <div class = 'col-lg-6 col-md-6'>
-                            <h4 class="Image-Title"><strong>Cereberus Hemisphere Enhanced</strong></h4>
-                            <a href={{mars_info.hemisphere_images_url}}
-                            ><img src={{mars_info.hemisphere_images_url}} class="panel" alt="Cereberus Hemisphere Enhanced"></img>
+                            <h4 class="Image-Title"><strong>{{mars_info.hemisphere_images_url[1].title}}</strong></h4>
+                            <a href={{mars_info.hemisphere_images_url[1].image_url}}
+                            ><img src={{mars_info.hemisphere_images_url[1].image_url}} class="panel" style="width:100%" alt={{mars_info.hemisphere_images_url[1].title}}></img>
                             </a>
                         </div>
                     </div>
                     <!--Row with the -->
                     <div class="row"> 
                         <div class = "col-lg-6 col-md-6">
-                            <h4 class="Image-Title"><strong>Schiaparelli Hemisphere Enhanced</strong></h4>
-                            <a href={{mars_info.hemisphere_images_url}}
-                            ><img src={{mars_info.hemisphere_images_url}} class="panel" alt="Shiaparelli Hemisphere Enhanced"></img>
+                            <h4 class="Image-Title"><strong>{{mars_info.hemisphere_images_url[2].title}}</strong></h4>
+                            <a href={{mars_info.hemisphere_images_url[2].image_url}}
+                            ><img src={{mars_info.hemisphere_images_url[2].image_url}} class="panel" style="width:100%" alt={{mars_info.hemisphere_images_url[2].title}}></img>
                             </a>
                         </div>
                         <div class = "col-lg-6 col-md-6">
-                            <h4 class="Image-Title"><strong>Syrtis Major Hemisphere Enhanced</strong></h4>
-                            <a href={{mars_info.hemisphere_images_url}}
-                            ><img src={{mars_info.hemisphere_images_url}} class="panel" alt="Syrtis Major Hemisphere Enhanced"></img>
+                            <h4 class="Image-Title"><strong>{{mars_info.hemisphere_images_url[3].title}}</strong></h4>
+                            <a href={{mars_info.hemisphere_images_url[3].image_url}}
+                            ><img src={{mars_info.hemisphere_images_url[3].image_url}} class="panel" style="width:100%" alt={{mars_info.hemisphere_images_url[3].title}}></img>
                             </a>
                         </div>
                     </div>
@@ -86,7 +87,15 @@
             </div>
         </div>     
     </div> 
-  </div>  
+  </div> 
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+     
+  
 </body>
 
 </html>
