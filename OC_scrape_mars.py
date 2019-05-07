@@ -101,9 +101,15 @@ def scrape():
     latest_tweet = soup3.find("p", class_="TweetTextSize TweetTextSize--normal js-tweet-text tweet-text")
     latest_tweet
 
+    #remove the a tag text tag from our code
+    for s in latest_tweet('a'):
+        s.extract()
+    
+    #test latest_tweet.text
     #mars weather
-    mars_weather = latest_tweet.text.strip('InSight ')
+    mars_weather = latest_tweet.text
     mars_weather
+    
     #upload mars_weather to mars_data dict
     mars_data["mars_weather"] = mars_weather
 
